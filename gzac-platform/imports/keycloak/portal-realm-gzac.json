@@ -572,14 +572,14 @@
   }, {
     "id" : "eb1dae55-34b3-4283-a574-5536c443e1f8",
     "clientId" : "gzac-portal",
-    "rootUrl" : "http://localhost:4201",
-    "adminUrl" : "http://localhost:4201",
+    "rootUrl" : "http://localhost:3000",
+    "adminUrl" : "http://localhost:3000",
     "surrogateAuthRequired" : false,
     "enabled" : true,
     "alwaysDisplayInConsole" : false,
     "clientAuthenticatorType" : "client-secret",
-    "redirectUris" : [ "http://localhost:4201/*" ],
-    "webOrigins" : [ "http://localhost:4201" ],
+    "redirectUris" : [ "http://localhost:3000/*" ],
+    "webOrigins" : [ "http://localhost:3000" ],
     "notBefore" : 0,
     "bearerOnly" : false,
     "consentRequired" : false,
@@ -598,7 +598,39 @@
     "fullScopeAllowed" : true,
     "nodeReRegistrationTimeout" : -1,
     "defaultClientScopes" : [ "web-origins", "profile", "roles", "email" ],
-    "optionalClientScopes" : [ "address", "phone", "offline_access", "microprofile-jwt" ]
+    "optionalClientScopes" : [ "address", "phone", "offline_access", "microprofile-jwt" ],
+    "protocolMappers": [
+      {
+        "id": "a69788a1-8a54-49c0-b734-26d3e2f22180",
+        "name": "bsn",
+        "protocol": "openid-connect",
+        "protocolMapper": "oidc-usermodel-attribute-mapper",
+        "consentRequired": false,
+        "config": {
+          "userinfo.token.claim": "true",
+          "user.attribute": "bsn",
+          "id.token.claim": "true",
+          "access.token.claim": "true",
+          "claim.name": "bsn",
+          "jsonType.label": "String"
+        }
+      },
+      {
+        "id": "022b6b56-31ce-4c0c-a1fe-1f0b81f03167",
+        "name": "kvk",
+        "protocol": "openid-connect",
+        "protocolMapper": "oidc-usermodel-attribute-mapper",
+        "consentRequired": false,
+        "config": {
+          "userinfo.token.claim": "true",
+          "user.attribute": "kvk",
+          "id.token.claim": "true",
+          "access.token.claim": "true",
+          "claim.name": "kvk",
+          "jsonType.label": "String"
+        }
+      }
+    ]
   }, {
     "id" : "fcb5575c-2540-4fc2-8313-ee7acaafd470",
     "clientId" : "master-realm",
