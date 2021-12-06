@@ -230,7 +230,7 @@ services:
         command: /celery_worker.sh
 
     database-open-notificaties:
-        image: postgres
+        image: postgres:13.5
         container_name: database-open-notificaties
         ports:
             - "54319:5432"
